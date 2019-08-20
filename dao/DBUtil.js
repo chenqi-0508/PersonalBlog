@@ -10,5 +10,4 @@ function createConnection() {
     });
     return connection;
 }
-
 module.exports.createConnection = createConnection;
