@@ -1,5 +1,5 @@
 {
-  "name": "personalblog",
+  "name": "mypersonalblog",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenqi-0508/PersonalBlog.git"
+    "url": "git+https://github.com/chenqi-0508/MyPersonalBlog.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chenqi-0508/PersonalBlog/issues"
+    "url": "https://github.com/chenqi-0508/MyPersonalBlog/issues"
   },
-  "homepage": "https://github.com/chenqi-0508/PersonalBlog#readme",
+  "homepage": "https://github.com/chenqi-0508/MyPersonalBlog#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "express": "^4.17.1",
