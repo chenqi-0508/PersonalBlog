@@ -1,0 +1,36 @@
+.description {
+    width: 100%;
+    background-color: white;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow:  1px 1px 10px #5f5f5f;
+    padding: 15px 25px;
+    box-sizing: border-box;
+}
+.blog-comments-msg {
+    margin-top: 20px;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+.blog-comment {
+    width: 95%;
+    background-color: #d9ddf7;
+    border: 1px dashed #7ca4c1;
+    padding: 10px 10px 20px 10px;
+    margin-top: 10px;
+    color: #31708f;
+    text-align: left;
+}
+.blog-comment span {
+    display: inline-block;
+    width: 100%;
+    padding-left: 10px;
+}
+.blog-comment div {
+    display: inline-block;
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 10px;
+}

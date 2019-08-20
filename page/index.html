@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人博客 | 技术博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="#" class="title">我的个人博客 | 技术博客</a>
+        <ul class="menu">
+            <li><a href="/">首页</a></li>
+            <li><a href="/siteMap.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="search_bar">
+            <input type="text" placeholder="输入关键词查找">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+<div class="contain">
+    <div class="content-left">
+        <div class="every-day" id="every-day">
+            <span>每日一句</span>
+            <p v-html="getContent"></p>
+        </div>
+        <div class="article-list" id="article-list">
+            <div class="article" v-for="article in articleList">
+                <a v-bind:href="article.link" class="article-title">{{article.title}}</a>
+                <p class="article-content">
+                    {{article.content}}
+                </p>
+                <div class="article-foot">发布于{{article.date}} | 浏览({{article.views}}) | Tags：{{article.tags}}</div>
+            </div>
+            <div class="page-tool">
+                <ul>
+                    <li v-for="pageNum in pageNumList" v-on:click="jumpPage(pageNum.page)" v-bind:class="{now_page: (pageNum.text == page)}">{{pageNum.text}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-right">
+        <div class="tags" id="random-tags">
+            <div class="tags-title">随机标签云</div>
+            <div class="tags-content">
+                <a href="#" v-for="tag in tagsList" v-bind:style="{color: randomColor(), fontSize: randomSize()}">{{tag}}</a>
+            </div>
+        </div>
+        <div class="hot" id="hot">
+            <div class="hot-title">最近热门</div>
+            <ul class="hot-content">
+                <li v-for="hot in hotList"><a target="_blank" href="https://www.baidu.com" >{{hot}}</a></li>
+            </ul>
+        </div>
+        <div class="comment" id="comment">
+            <div class="comment-title">最新评论</div>
+            <ul class="comment-content">
+                <li v-for="comment in commentList">
+                    <div class="content-title">
+                        <span class="name">{{comment.commentName}}</span>
+                        <span class="time">[{{comment.commentTime}}]</span>
+                    </div>
+                    <a href="#">{{comment.commentContent}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li><a href="">CSS/DIV</a></li>
+        <li><a href="">PC技术</a></li>
+        <li><a href="">Raspberry</a></li>
+        <li><a href="">wordpress</a></li>
+    </ul>
+    <p>Copyright © 2010-2019 郑晓个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+</footer>
+
+<script src="./js/index.js"></script>
+<script src="./js/base.js"></script>
+</body>
+</html>

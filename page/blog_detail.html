@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的个人博客 | 技术博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/guestbook.css">
+    <link rel="stylesheet" href="./css/blog_detail.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="#" class="title">我的个人博客 | 技术博客</a>
+        <ul class="menu">
+            <li><a href="/">首页</a></li>
+            <li><a href="/siteMap.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="search_bar">
+            <input type="text" placeholder="输入关键词查找">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+<div class="contain">
+    <div class="content-left">
+        <div class="blog-detail" id="blogDetail">
+            <div class="site">
+                当前位置：<a href="/">博客首页</a> >> <a href="#">树莓派</a> >> 阅读正文
+            </div>
+            <div class="blog_header">
+                <h2 class="blog_title">{{title}}</h2>
+                <div class="title_detail">
+                    作者: 郑晓 分类: <a href="">{{tags}} </a> 发布于: 2018-08-02 08:35 浏览({{views}}) 评论(3)
+                </div>
+                <div class="blog_content">{{content}}</div>
+            </div>
+        </div>
+        <div class="blog-comments">
+            <div class="prev-blog switch-blog"><a href="">上一篇</a></div>
+            <div class="next-blog switch-blog"><a href="">下一篇</a></div>
+            <span class="blog-comments-msg">树莓派安装homebridge小记：目前有3 条留言</span>
+            <div class="blog-comment">
+                <span><b>许寒</b>:发表于 2019年02月13日 20:49[回复]</span>
+                <div class="blog-content">你说的是文章页的那些作者链接吗？ 我是直接把它删除了。。。</div>
+            </div>
+        </div>
+        <div class="send-comments" id="send-comments">
+            <p>发表评论</p>
+            <input type="hidden" name="blog_id" id="blog_id">
+            <input type="hidden" id="comments_id" value="-1">
+            <input type="text" placeholder="昵称" name="user_name" id="user_name">
+            <input type="text" placeholder="邮箱" name="e_mail" id="e_mail">
+            <textarea name="comments" id="comments" cols="30" rows="10" placeholder="邮箱">无意义的内容我可能不会回复你</textarea>
+            <div class="valid-div">
+                <input type="text" placeholder="验证码" id="valid">
+                <span v-html="vcode" v-on:click="queryRandomCode()"></span>
+            </div>
+            <button id="subBtn" v-on:click="subBtn()">提交留言</button>
+        </div>
+    </div>
+    <div class="content-right">
+        <div class="tags">
+            <div class="tags-title">随机标签云</div>
+            <div class="tags-content">
+                <p>外链数据结构vagrantDCS黑鲨伤不起音乐php分页指针模拟飞行selenium蛋疼树莓派mysql拉登RewriteC++分区C语言</p>
+                <p>
+                    wordpresspythoncpanelseotelnetdedecms独立博客五笔摄像头博客优化模拟航天飞机session灯泡姑娘E6搞笑maclaravel游戏gitwin7SpaceShuttleMission</p>
+                <p>博客Sunshine Girl个人博客nginxcss+divphp</p>
+            </div>
+        </div>
+        <div class="hot">
+            <div class="hot-title">最近热门</div>
+            <ul class="hot-content">
+                <li><a href="#">使用码云git的webhook实现生产环境代</a></li>
+                <li><a href="#">VirtualBox压缩vmdk、vagrant打包b</a></li>
+                <li><a href="#">查看你的AWS服务器已使用流量</a></li>
+                <li><a href="#">vscode+XDebug调试远程环境(虚拟机</a></li>
+                <li><a href="#">python+selenium自动登录qq空间并下载</a></li>
+                <li><a href="#">初烧盲狙一条铁三角e40</a></li>
+                <li><a href="#">抓取摩拜单车车辆位置数据</a></li>
+                <li><a href="#">树莓派安装homebridge小记</a></li>
+                <li><a href="#">ubuntu下cmake报错Could NOT fin</a></li>
+                <li><a href="#">注册谷歌时提示"此电话号码无法用于进</a></li>
+            </ul>
+        </div>
+        <div class="comment">
+            <div class="comment-title">最新评论</div>
+            <ul class="comment-content">
+                <li>
+                    <div class="content-title">
+                        <span class="name">lujianxin.com</span>
+                        <span class="time">[1周前]</span>
+                    </div>
+                    <a href="#">友链来访， 看看文章， 打个卡</a>
+                </li>
+                <li>
+                    <div class="content-title">
+                        <span class="name">小刘</span>
+                        <span class="time">[1个月前]</span>
+                    </div>
+                    <a href="#">你的博客网页，整洁有序，唯一不足之处</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <li><a href="">CSS/DIV</a></li>
+        <li><a href="">PC技术</a></li>
+        <li><a href="">Raspberry</a></li>
+        <li><a href="">wordpress</a></li>
+    </ul>
+    <p>Copyright © 2010-2019 郑晓个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+</footer>
+
+<script src="./js/blog_detail.js"></script>
+</body>
+</html>

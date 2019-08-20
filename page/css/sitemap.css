@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.siteMap-title {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+}
+.siteMap-path {
+    border: 1px solid #eeeeee;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 95%;
+    margin: 0 auto;
+}
+.siteMap-content {
+    border: 1px solid #eeeeee;
+    font-size: 14px;
+    padding: 20px 10px;
+    width: 95%;
+    margin: 10px auto;
+}
+.siteMap-content .header {
+    font-weight: bold;
+}
+.siteMap-content ul li{
+    margin-left: 40px;
+    padding: 5px 0;
+    font-size: 12px;
+}
+.siteMap-content li a {
+    color: #333333;
+    font-size: 12px;
+}
