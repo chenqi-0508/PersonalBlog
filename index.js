@@ -2,7 +2,7 @@ var express = require('express');
 var GlobalConfig = require('./config');
 var loader = require('./loader');
 var app = new express();
-app.use(express.static(GlobalConfig["page_path"]));
+app.use(express.static("./" + GlobalConfig["page_path"] + "/"));
 app.listen(GlobalConfig["port"], function() {
    console.log('服务器已启动');
 });
